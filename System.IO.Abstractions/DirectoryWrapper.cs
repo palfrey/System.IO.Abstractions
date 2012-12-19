@@ -2,7 +2,7 @@
 
 namespace System.IO.Abstractions
 {
-    public class DirectoryWrapper : DirectoryBase
+    public partial class DirectoryWrapper : DirectoryBase
     {
         public override DirectoryInfoBase CreateDirectory(string path)
         {

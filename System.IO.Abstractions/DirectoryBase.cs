@@ -2,7 +2,7 @@
 
 namespace System.IO.Abstractions
 {
-    public abstract class DirectoryBase
+    public abstract partial class DirectoryBase
     {
         public abstract DirectoryInfoBase CreateDirectory(string path);
         public abstract DirectoryInfoBase CreateDirectory(string path, DirectorySecurity directorySecurity);
