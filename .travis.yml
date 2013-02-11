@@ -1,7 +1,9 @@
 language: c
 
 install:
-  - sudo apt-get install mono-devel mono-gmcs nunit-consolescript:
+  - sudo apt-get install mono-devel mono-gmcs nunit-console
+
+script:
   - xbuild CI.proj
   - nunit-console ./TestHelpers.Tests/bin/Debug/System.IO.Abstractions.TestingHelpers.Tests.dll -exclude Integration,NotWorkingOnMono
 
