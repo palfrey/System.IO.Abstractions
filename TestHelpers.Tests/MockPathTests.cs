@@ -1,11 +1,22 @@
 ﻿using System.Diagnostics;
 using NUnit.Framework;
+using System.IO;
 
 namespace System.IO.Abstractions.TestingHelpers.Tests
 {
     public class MockPathTests
     {
-        const string TestPath = "C:\\test\\test.bmp";
+        private bool UnixSystem {get {
+            return Path.DirectorySeparatorChar != '\\';
+        }}
+
+
+        private string TestPath {get {
+            if (UnixSystem)
+                return "/test/test.bmp";
+            else
+                return "C:\\test\\test.bmp";
+        }}
 
         private MockPath SetupMockPath()
         {
@@ -22,7 +33,7 @@ namespace System.IO.Abstractions.TestingHelpers.Tests
             var result = mockPath.ChangeExtension(TestPath, "doc");
 
             //Assert
-            Assert.AreEqual("C:\\test\\test.doc", result);
+            Assert.AreEqual(UnixSystem?"/test/test.doc":"C:\\test\\test.doc", result);
         }
 
         [Test]
@@ -32,10 +43,10 @@ namespace System.IO.Abstractions.TestingHelpers.Tests
             var mockPath = SetupMockPath();
 
             //Act
-            var result = mockPath.Combine("C:\\test", "test.bmp");
+            var result = mockPath.Combine(UnixSystem?"/test":"C:\\test", "test.bmp");
 
             //Assert
-            Assert.AreEqual("C:\\test\\test.bmp", result);
+            Assert.AreEqual(UnixSystem?"/test/test.bmp":"C:\\test\\test.bmp", result);
         }
 
         [Test]
@@ -48,7 +59,7 @@ namespace System.IO.Abstractions.TestingHelpers.Tests
             var result = mockPath.GetDirectoryName(TestPath);
 
             //Assert
-            Assert.AreEqual("C:\\test", result);
+            Assert.AreEqual(UnixSystem?"/test":"C:\\test", result);
         }
 
         [Test]
@@ -139,7 +150,7 @@ namespace System.IO.Abstractions.TestingHelpers.Tests
             var result = mockPath.GetPathRoot(TestPath);
 
             //Assert
-            Assert.AreEqual("C:\\", result);
+            Assert.AreEqual(UnixSystem?"/":"C:\\", result);
         }
 
         [Test]
