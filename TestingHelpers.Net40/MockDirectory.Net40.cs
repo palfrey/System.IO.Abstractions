@@ -18,5 +18,19 @@ namespace System.IO.Abstractions.TestingHelpers
         {
             return GetDirectories(path, searchPattern, searchOption);
         }
+        public override IEnumerable<string> EnumerateDirectories(string path)
+        {
+            return GetDirectories(path);
+        }
+
+        public override IEnumerable<string> EnumerateDirectories(string path, string searchPattern)
+        {
+            return GetDirectories(path, searchPattern);
+        }
+
+        public override IEnumerable<string> EnumerateDirectories(string path, string searchPattern, SearchOption searchOption)
+        {
+            return GetDirectories(path, searchPattern, searchOption);
+        }
     }
 }
