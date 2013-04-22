@@ -6,18 +6,19 @@ namespace System.IO.Abstractions.TestingHelpers
     {
         public override IEnumerable<string> EnumerateFiles(string path)
         {
-            return GetDirectories(path);
+            return GetFiles(path);
         }
 
         public override IEnumerable<string> EnumerateFiles(string path, string searchPattern)
         {
-            return GetDirectories(path, searchPattern);
+            return GetFiles(path, searchPattern);
         }
 
         public override IEnumerable<string> EnumerateFiles(string path, string searchPattern, SearchOption searchOption)
         {
-            return GetDirectories(path, searchPattern, searchOption);
+            return GetFiles(path, searchPattern, searchOption);
         }
+
         public override IEnumerable<string> EnumerateDirectories(string path)
         {
             return GetDirectories(path);
