@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>System.IO.Abstractions.TestingHelpers</RootNamespace>
     <AssemblyName>System.IO.Abstractions.TestingHelpers</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="..\TestingHelpers\IMockFileDataAccessor.cs" />
     <Compile Include="..\TestingHelpers\MockDirectory.cs" />
+    <Compile Include="..\TestingHelpers\MockDirectoryData.cs">
+      <Link>MockDirectoryData.cs</Link>
+    </Compile>
     <Compile Include="..\TestingHelpers\MockDirectoryInfo.cs" />
     <Compile Include="..\TestingHelpers\MockDirectoryInfoFactory.cs" />
     <Compile Include="..\TestingHelpers\MockFile.cs" />

@@ -15,6 +15,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\TestHelpers.Net40\bin\$configuration$\TestHelpers.dll" target="lib\net40" />
+    <file src="..\TestingHelpers.Net40\bin\$configuration$\System.IO.Abstractions.TestingHelpers.dll" target="lib\net40" />
   </files>
 </package>
